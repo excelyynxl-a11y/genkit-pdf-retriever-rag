@@ -1,0 +1,30 @@
+Setting up genkit, pdf-parse, dev-local-vectorscore:
+>>
+>>
+>> npm install llm-chunk pdf-parse @genkit-ai/dev-local-vectorstore
+>> npm install --save-dev @types/pdf-parse
+>> npm install llm-chunk
+>> npm install dotenv
+
+Run backend:
+>> genkit start -- npx tsx --watch src/index.ts
+>> click on the localhost link
+
+Seeding menu for testing (eg: hallaholla_menu.odf):
+>> genkit flow:run indexMenu '{"filePath": "hallaholla_menu.pdf"}'
+>> OR
+>> genkit flow:run indexMenu "{ \"filePath\": \"hallaholla_menu.pdf\" }"
+>> seeding must be done after running backend and before retrieval process 
+
+Run the retrieval flow:
+>> genkit flow:run menuQA '{"query": "Recommend a dessert from the menu while avoiding meat"}'
+>> OR
+>> genkit flow:run menuQA "{ \"query\": \"Recommend a dessert from the menu while avoiding meat\" }"
+
+Understanding RAG with pdf-parse, genkit, dev local firestore:
+>> Genkit RAG docs: https://genkit.dev/docs/rag/#what-is-rag
+>> Latest v2 pdf-parse docs (diff from code provided in Genkit RAG docs): https://www.npmjs.com/package/pdf-parse
+
+Remarks:
+- currently im dumping all code into src/index.ts, which is prolly (idk?)
+  not the best practice, will redistribute them into files and afterwards

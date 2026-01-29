@@ -5,6 +5,7 @@ import { genkit } from "genkit";
 export const ai = genkit({
     plugins: [
         // googleAI provides the gemini-embedding-001 embedder
+        // RAG embedding technique
         googleAI(),
 
         // local vector store requires an embedder to translate from text to vector

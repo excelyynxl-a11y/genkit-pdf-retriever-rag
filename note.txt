@@ -10,7 +10,8 @@ Run backend:
 >> genkit start -- npx tsx --watch src/index.ts
 >> click on the localhost link
 
-Seeding menu for testing (eg: hallaholla_menu.odf):
+Run the indexer flow
+>> purpose is to seed menu for testing (eg: hallaholla_menu.odf):
 >> genkit flow:run indexMenu '{"filePath": "hallaholla_menu.pdf"}'
 >> OR
 >> genkit flow:run indexMenu "{ \"filePath\": \"hallaholla_menu.pdf\" }"
@@ -28,6 +29,7 @@ Understanding RAG with pdf-parse, genkit, dev local firestore:
 Remarks:
 - currently im dumping all code into src/index.ts, which is prolly (idk?)
   not the best practice, will redistribute them into files and afterwards
-- there are 2 defineFlow(), thus the 2 flow created in this Genkit project are:
-  a. indexMenu
-  b. menuQAFlow
+- 3 RAG techniques involved:
+  a. indexMenu (indexer function)
+  b. menuQAFlow (retriever function)
+  c. googleai() in src/genkit.ts (embedder function), embeddings can be found in _db_menuQA.json

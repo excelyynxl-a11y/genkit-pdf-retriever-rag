@@ -38,7 +38,8 @@ const chunkingConfig = {
     delimiters: '',
 } as any;
 
-// define the flow for indexing items in menu (?)
+// define the flow for indexing items in menu 
+// indexer function of RAG
 export const indexMenu = ai.defineFlow(
     {
         name: 'indexMenu', // name of flow
@@ -68,7 +69,8 @@ export const indexMenu = ai.defineFlow(
                 return Document.fromText(text, { filePath })
             });
 
-            // add document to index (refer to how we defined devLocalVectorstore in src/genkit.ts)
+            // add document to index (refer to how we defined menuPdfIndexer using devLocalVectorstore in src/genkit.ts)
+            // under the hood, ai.index() is taking document text > embed the text >> store as vector >> stored in dev-local-vectorstore
             await ai.index({
                 indexer: menuPdfIndexer,
                 documents,
@@ -95,6 +97,7 @@ export const indexMenu = ai.defineFlow(
 export const menuRetriever = devLocalIndexerRef('menuQA');
 
 // define the flow to question ai about the menu
+// retriever function of RAG
 export const menuQAFlow = ai.defineFlow(
     {
         name: 'menuQA',

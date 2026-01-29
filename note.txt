@@ -17,9 +17,9 @@ Seeding menu for testing (eg: hallaholla_menu.odf):
 >> seeding must be done after running backend and before retrieval process 
 
 Run the retrieval flow:
->> genkit flow:run menuQA '{"query": "Recommend a dessert from the menu while avoiding meat"}'
+>> genkit flow:run menuQA '{"query": "Recommend a meal from the menu while avoiding meat"}'
 >> OR
->> genkit flow:run menuQA "{ \"query\": \"Recommend a dessert from the menu while avoiding meat\" }"
+>> genkit flow:run menuQA "{ \"query\": \"Recommend a meal from the menu while avoiding meat\" }"
 
 Understanding RAG with pdf-parse, genkit, dev local firestore:
 >> Genkit RAG docs: https://genkit.dev/docs/rag/#what-is-rag
@@ -28,3 +28,6 @@ Understanding RAG with pdf-parse, genkit, dev local firestore:
 Remarks:
 - currently im dumping all code into src/index.ts, which is prolly (idk?)
   not the best practice, will redistribute them into files and afterwards
+- there are 2 defineFlow(), thus the 2 flow created in this Genkit project are:
+  a. indexMenu
+  b. menuQAFlow
